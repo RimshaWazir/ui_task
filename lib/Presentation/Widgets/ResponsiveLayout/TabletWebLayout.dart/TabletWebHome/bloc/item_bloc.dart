@@ -1,15 +1,18 @@
-import 'dart:async';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ui_task/Data/DataSource/Resources/app_strings.dart';
 import 'package:ui_task/Domain/item.dart';
 
-class ItemBloc {
-  final _itemController = StreamController<List<Item>>.broadcast();
+class ItemState {
+  final List<Item> items;
 
-  Stream<List<Item>> get itemListStream => _itemController.stream;
+  ItemState(this.items);
+}
 
-  void fetchItems() {
-    final items = [
+class ItemBloc extends Bloc<dynamic, ItemState> {
+  ItemBloc() : super(ItemState([]));
+
+  Stream<ItemState> fetchedItems(dynamic event) async* {
+    final List<Item> fetchedItems = [
       Item(title: AppStrings.earning, price: AppStrings.price1),
       Item(title: AppStrings.spendMonth, price: AppStrings.price2),
       Item(title: AppStrings.sales, price: AppStrings.price3),
@@ -17,11 +20,6 @@ class ItemBloc {
       Item(title: AppStrings.tasks, price: AppStrings.price5),
       Item(title: AppStrings.projects, price: AppStrings.price6)
     ];
-
-    _itemController.sink.add(items);
-  }
-
-  void dispose() {
-    _itemController.close();
+    yield ItemState(fetchedItems);
   }
 }

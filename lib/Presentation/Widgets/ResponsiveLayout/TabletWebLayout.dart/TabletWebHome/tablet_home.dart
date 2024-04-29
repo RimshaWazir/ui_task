@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ui_task/Data/DataSource/Resources/imports.dart';
 import 'package:ui_task/Domain/item.dart';
 import 'package:ui_task/Presentation/Commons/custom_grids.dart';
@@ -23,19 +26,10 @@ class _TabletHomeState extends State<TabletHome> {
     });
   }
 
-  final ItemBloc _itemBloc = ItemBloc();
-
-  @override
-  void initState() {
-    super.initState();
-    _itemBloc.fetchItems();
-    print(_itemBloc.fetchItems.toString);
-  }
-
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: Row(
         children: [
@@ -53,87 +47,77 @@ class _TabletHomeState extends State<TabletHome> {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          IconButton(
-                            icon: const Icon(Icons.menu),
-                            onPressed: toggleDrawer,
-                          ),
-                          SizedBox(
-                            width: width * 0.01,
-                          ),
-                          RichText(
-                            text: TextSpan(
-                              style: StylesText.smallText,
-                              children: [
-                                const TextSpan(
-                                    text: '${AppStrings.pagesDashboard}\n'),
-                                TextSpan(
-                                    text: AppStrings.dashboard,
-                                    style: StylesText.largeText
-                                        .copyWith(fontSize: 34)),
-                              ],
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            IconButton(
+                              icon: const Icon(Icons.menu),
+                              onPressed: toggleDrawer,
                             ),
-                          ),
-                          const Spacer(),
-                          const CustomTextField(),
-                        ],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 20),
-                        child: StreamBuilder<List<Item>>(
-                          stream: _itemBloc.itemListStream,
-                          builder: (context, snapshot) {
-                            if (snapshot.connectionState ==
-                                ConnectionState.waiting) {
-                              return const Center(
-                                child: CircularProgressIndicator(),
-                              );
-                            } else if (snapshot.hasError) {
-                              return Center(
-                                child: Text("Error: ${snapshot.error}"),
-                              );
-                            } else if (snapshot.hasData) {
-                              // Data state
-                              final items = snapshot.data!;
-                              return Flexible(
-                                child: SizedBox(
-                                  height: context.screenHeight * 0.11,
-                                  width: context.screenWidth,
+                            SizedBox(
+                              width: width * 0.01,
+                            ),
+                            RichText(
+                              text: TextSpan(
+                                style: StylesText.smallText,
+                                children: [
+                                  const TextSpan(
+                                      text: '${AppStrings.pagesDashboard}\n'),
+                                  TextSpan(
+                                      text: AppStrings.dashboard,
+                                      style: StylesText.largeText
+                                          .copyWith(fontSize: 34)),
+                                ],
+                              ),
+                            ),
+                            const Spacer(),
+                            const CustomTextField(),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 20),
+                          child: BlocSelector<ItemBloc, ItemState, List<Item>>(
+                            selector: (state) {
+                              log(state.items.toString());
+                              return state.items;
+                            },
+                            builder: (context, items) {
+                              log(items.toString());
+                              if (items.isNotEmpty) {
+                                return SizedBox(
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.11,
+                                  width: MediaQuery.of(context).size.width,
                                   child: ListView.separated(
                                     shrinkWrap: true,
                                     scrollDirection: Axis.horizontal,
                                     separatorBuilder: (context, index) =>
                                         SizedBox(
-                                      width: context.screenWidth * 0.01,
+                                      width: MediaQuery.of(context).size.width *
+                                          0.01,
                                     ),
                                     itemCount: items.length,
                                     itemBuilder: (context, index) {
                                       final item = items[index];
-                                      return Expanded(
-                                        child: CustomGrids(
-                                          image: ImageAssets.bar,
-                                          title: item.title,
-                                          price: item.price,
-                                          widget: null,
-                                        ),
+                                      return CustomGrids(
+                                        image: ImageAssets.bar,
+                                        title: item.title,
+                                        price: item.price,
+                                        widget: null,
                                       );
                                     },
                                   ),
-                                ),
-                              );
-                            } else {
-                              return const SizedBox();
-                            }
-                          },
+                                );
+                              } else {
+                                return const Text("No Data");
+                              }
+                            },
+                          ),
                         ),
-                      )
-                    ],
-                  ),
+                      ]),
                 ),
               ),
             ),
