@@ -1,7 +1,7 @@
 import 'package:ui_task/Data/DataSource/Resources/imports.dart';
 
-class TabletOrWebLayout extends StatelessWidget {
-  const TabletOrWebLayout(BuildContext context, {super.key});
+class TabletOrWebLogin extends StatelessWidget {
+  const TabletOrWebLogin(BuildContext context, {super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:ui_task/Application/Services/Navigation/navigation.dart';
 import 'package:ui_task/Data/DataSource/Resources/imports.dart';
-import 'package:ui_task/Presentation/Widgets/ResponsiveLayout/TabletWebLayout.dart/TabletWebHome/tablet_home.dart';
+import 'package:ui_task/Presentation/Widgets/ResponsiveLayout/TabletWebHome.dart/tablet_home.dart';
 
 class LoginForm extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();

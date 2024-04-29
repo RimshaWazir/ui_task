@@ -7,3 +7,33 @@ extension ContextExtension on BuildContext {
   double width(double value) => screenWidth * value;
   double height(double value) => screenHeight * value;
 }
+
+extension EdgeInsetsExtension on EdgeInsets {
+  EdgeInsets all(double padding) {
+    return EdgeInsets.all(padding);
+  }
+
+  EdgeInsets left(double padding) {
+    return EdgeInsets.only(left: padding);
+  }
+
+  EdgeInsets top(double padding) {
+    return EdgeInsets.only(top: padding);
+  }
+
+  EdgeInsets right(double padding) {
+    return EdgeInsets.only(right: padding);
+  }
+
+  EdgeInsets bottom(double padding) {
+    return EdgeInsets.only(bottom: padding);
+  }
+
+  EdgeInsets horizontal(double padding) {
+    return EdgeInsets.symmetric(horizontal: padding);
+  }
+
+  EdgeInsets vertical(double padding) {
+    return EdgeInsets.symmetric(vertical: padding);
+  }
+}

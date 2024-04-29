@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:ui_task/Presentation/Widgets/ResponsiveLayout/TabletWebLayout.dart/TabletWebHome/tablet_home.dart';
-import 'package:ui_task/Presentation/Widgets/ResponsiveLayout/MobileLayout/mobile_home.dart';
+import 'package:ui_task/Data/DataSource/Resources/imports.dart';
 
 class ResponsiveLayout extends StatelessWidget {
   const ResponsiveLayout({super.key});
