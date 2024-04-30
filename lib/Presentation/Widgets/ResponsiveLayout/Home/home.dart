@@ -1,4 +1,5 @@
 import 'package:ui_task/Data/DataSource/Resources/imports.dart';
+import 'package:ui_task/Presentation/Commons/appbar_title.dart';
 import 'package:ui_task/Presentation/Commons/dashboard_drawer.dart';
 
 import 'Controllers/drawer_controller.dart';
@@ -78,19 +79,7 @@ class _HomeState extends State<Home> {
                             SizedBox(
                               width: width * 0.01,
                             ),
-                            RichText(
-                              text: TextSpan(
-                                style: StylesText.mediumText,
-                                children: [
-                                  const TextSpan(
-                                      text: '${AppStrings.pagesDashboard}\n'),
-                                  TextSpan(
-                                      text: AppStrings.dashboard,
-                                      style: StylesText.largeText
-                                          .copyWith(fontSize: 34)),
-                                ],
-                              ),
-                            ),
+                            const AppbarTitle(),
                             const Spacer(),
                             const CustomTextField(),
                           ],

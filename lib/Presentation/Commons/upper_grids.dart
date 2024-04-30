@@ -2,6 +2,7 @@ import 'package:ui_task/Presentation/Commons/custom_grids.dart';
 import 'package:ui_task/Presentation/Widgets/ResponsiveLayout/Home/Controllers/item_state.dart';
 
 import '../../Data/DataSource/Resources/imports.dart';
+import 'custom_grid_rich_text.dart';
 
 class UpperGrids extends StatelessWidget {
   const UpperGrids({
@@ -38,21 +39,7 @@ class UpperGrids extends StatelessWidget {
                     image: ImageAssets.bar,
                     title: item.title,
                     price: item.price,
-                    widget: isThirdIndex
-                        ? RichText(
-                            text: TextSpan(
-                              style: StylesText.smallText.copyWith(
-                                  fontWeight: FontWeight.w700,
-                                  color: const Color(0xff05CD99)),
-                              children: [
-                                const TextSpan(text: AppStrings.percent),
-                                TextSpan(
-                                    text: AppStrings.history,
-                                    style: StylesText.smallText),
-                              ],
-                            ),
-                          )
-                        : null,
+                    widget: isThirdIndex ? const CustomGridRichText() : null,
                   );
                 },
               ),

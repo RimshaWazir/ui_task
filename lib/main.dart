@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
 import 'package:ui_task/Data/AppData/provider.dart';
-
 import 'Data/DataSource/Resources/imports.dart';
 
 void main() {
