@@ -85,6 +85,49 @@ class _HomeState extends State<Home> {
                           ],
                         ),
                         const UpperGrids(),
+                        Row(
+                          children: [
+                            Container(
+                              width: context.screenWidth * 4,
+                              height: context.screenHeight * 3,
+                              decoration: BoxDecoration(
+                                  color: Colors.amber,
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    height: 30,
+                                    width: 60,
+                                    decoration:
+                                        const BoxDecoration(color: Colors.grey),
+                                  ),
+                                  AppText(AppStrings.price1,
+                                      style: StylesText.largeText
+                                          .copyWith(fontSize: 24))
+                                ],
+                              ),
+                            ),
+                            Container(
+                              width: context.screenWidth * 4,
+                              height: context.screenHeight * 3,
+                              decoration: BoxDecoration(
+                                  color: Colors.black,
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: Row(
+                                children: [
+                                  const Icon(
+                                    Icons.calendar_today_outlined,
+                                  ),
+                                  AppText(
+                                    AppStrings.spendMonth,
+                                    style: StylesText.mediumText
+                                        .copyWith(fontSize: 14),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+                        )
                       ]),
                 ),
               ),

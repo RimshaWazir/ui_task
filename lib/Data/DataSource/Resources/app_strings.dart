@@ -53,4 +53,30 @@ class AppStrings {
   static const String kanban = "Kanban";
   static const String profile = "Profile";
   static const String sigIn = "Sign In";
+
+  //Line Chart
+  static const String thisMonth = "This month";
+  static const String linechartPrice = "\$37.5K";
+  static const String totalSpent = "Total Spent";
+  static const String linechartPercent = "+2.45%";
+  static const String onTrack = "On track";
+  static const String linePrice = "\$108.00";
+  static const String sep = "Sep";
+  static const String oct = "Oct";
+  static const String nov = "Nov";
+  static const String dec = "Dec";
+  static const String jan = "Jan";
+  static const String feb = "Feb";
+
+  // Bar Chart
+  static const String weeklyRevenue = "Weekly Revenue";
+  static const String item1 = "11";
+  static const String item2 = "12";
+  static const String item3 = "13";
+  static const String item4 = "14";
+  static const String item5 = "15";
+  static const String item6 = "16";
+  static const String item7 = "17";
+  static const String item8 = "18";
+  static const String item9 = "19";
 }
