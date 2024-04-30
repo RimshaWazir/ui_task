@@ -36,7 +36,7 @@ class CustomButton extends StatelessWidget {
             Flexible(
               child: AppText(
                 text,
-                style: StylesText.smallText.copyWith(color: textColor),
+                style: StylesText.mediumText.copyWith(color: textColor),
               ),
             ),
           ],

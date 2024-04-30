@@ -5,11 +5,13 @@ class CustomGrids extends StatefulWidget {
   String? price;
   String? image;
   Widget? widget;
+  int? index;
   CustomGrids({
     super.key,
     this.widget,
     this.title,
     this.price,
+    this.index,
     this.image,
   });
 
@@ -21,12 +23,12 @@ class _CustomGridsState extends State<CustomGrids> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: context.screenHeight * 0.11,
+      height: context.screenHeight * 0.1,
       width: context.screenWidth * 0.18,
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(20)),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(
@@ -43,13 +45,13 @@ class _CustomGridsState extends State<CustomGrids> {
             child: Padding(
               padding: const EdgeInsets.only(top: 15),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Expanded(
                     child: RichText(
                       text: TextSpan(
-                        style: StylesText.smallText,
+                        style: StylesText.mediumText,
                         children: [
                           TextSpan(text: '${widget.title!}\n'),
                           TextSpan(

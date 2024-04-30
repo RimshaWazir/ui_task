@@ -1,11 +1,10 @@
 import 'package:flutter/gestures.dart';
 import 'package:ui_task/Application/Services/Navigation/navigation.dart';
 import 'package:ui_task/Data/DataSource/Resources/imports.dart';
-import 'package:ui_task/Presentation/Widgets/ResponsiveLayout/TabletWebHome.dart/tablet_home.dart';
 
-class LoginForm extends StatelessWidget {
+class LoginFormSide extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
-  LoginForm(
+  LoginFormSide(
     BuildContext context, {
     super.key,
   });
@@ -37,7 +36,7 @@ class LoginForm extends StatelessWidget {
                   Expanded(
                     child: AppText(
                       AppStrings.backToDashboard,
-                      style: StylesText.smallText,
+                      style: StylesText.mediumText,
                     ),
                   ),
                 ],
@@ -51,7 +50,7 @@ class LoginForm extends StatelessWidget {
               ),
               AppText(
                 AppStrings.enterEmailPassword,
-                style: StylesText.smallText,
+                style: StylesText.mediumText,
               ),
               SizedBox(height: context.height(0.02)),
               CustomButton(
@@ -78,7 +77,7 @@ class LoginForm extends StatelessWidget {
                     child: Flexible(
                       child: AppText(
                         'Or',
-                        style: StylesText.smallText,
+                        style: StylesText.mediumText,
                       ),
                     ),
                   ),
@@ -95,7 +94,7 @@ class LoginForm extends StatelessWidget {
               //Email TextField
               AppText(
                 AppStrings.email,
-                style: StylesText.smallText.copyWith(
+                style: StylesText.mediumText.copyWith(
                   color: const Color(0xff2B3674),
                 ),
               ),
@@ -119,7 +118,7 @@ class LoginForm extends StatelessWidget {
               //Passwword TextField
               AppText(
                 AppStrings.password,
-                style: StylesText.smallText.copyWith(
+                style: StylesText.mediumText.copyWith(
                   color: const Color(0xff2B3674),
                 ),
               ),
@@ -150,7 +149,7 @@ class LoginForm extends StatelessWidget {
                   backColor: const Color(0xff4318FF),
                   ontap: () {
                     if (_formKey.currentState!.validate()) {
-                      Navigate.toReplace(context, const TabletHome());
+                      // Navigate.toPushReplacement(context,   TabletHome());
                     }
                   }),
               SizedBox(height: context.height(0.02)),
@@ -159,14 +158,14 @@ class LoginForm extends StatelessWidget {
                   children: [
                     TextSpan(
                       text: AppStrings.notRegister,
-                      style: StylesText.smallText.copyWith(
+                      style: StylesText.mediumText.copyWith(
                         fontWeight: FontWeight.w400,
                         color: const Color(0xff2B3674),
                       ),
                     ),
                     TextSpan(
                       text: AppStrings.createAccount,
-                      style: StylesText.smallText.copyWith(
+                      style: StylesText.mediumText.copyWith(
                         fontWeight: FontWeight.w700,
                         color: const Color(0xff4318FF),
                       ),
@@ -178,7 +177,7 @@ class LoginForm extends StatelessWidget {
               SizedBox(height: context.height(0.1)),
               AppText(
                 AppStrings.allRights,
-                style: StylesText.smallText.copyWith(
+                style: StylesText.mediumText.copyWith(
                   height: 1,
                   letterSpacing: -0.02,
                 ),

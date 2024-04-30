@@ -1,4 +1,4 @@
-import 'package:ui_task/Domain/item.dart';
+import 'package:ui_task/Domain/Models/item.dart';
 
 abstract class ItemState {}
 

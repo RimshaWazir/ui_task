@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ui_task/Data/DataSource/Resources/app_strings.dart';
-import 'package:ui_task/Domain/item.dart';
-import 'package:ui_task/Presentation/Widgets/ResponsiveLayout/TabletWebHome.dart/Controllers/item_state.dart';
+import 'package:ui_task/Domain/Models/item.dart';
+import 'package:ui_task/Presentation/Widgets/ResponsiveLayout/Home/Controllers/item_state.dart';
 
 class ItemBloc extends Cubit<ItemState> {
   ItemBloc() : super(InitialItemState());

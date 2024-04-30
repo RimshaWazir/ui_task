@@ -43,4 +43,14 @@ class AppStrings {
   static const String price5 = "154";
   static const String projects = "Total Projects";
   static const String price6 = "283";
+  static const String percent = "+23% ";
+  static const String history = "since last month";
+
+  // Drawer
+  static const String ddashboard = "Dashboard";
+  static const String nft = "NFT Marketplace";
+  static const String table = "Tables";
+  static const String kanban = "Kanban";
+  static const String profile = "Profile";
+  static const String sigIn = "Sign In";
 }

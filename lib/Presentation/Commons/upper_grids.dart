@@ -1,9 +1,7 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ui_task/Presentation/Commons/custom_grids.dart';
-import 'package:ui_task/Presentation/Widgets/ResponsiveLayout/TabletWebHome.dart/Controllers/item_state.dart';
+import 'package:ui_task/Presentation/Widgets/ResponsiveLayout/Home/Controllers/item_state.dart';
 
 import '../../Data/DataSource/Resources/imports.dart';
-import '../Widgets/ResponsiveLayout/TabletWebHome.dart/Controllers/item_bloc.dart';
 
 class UpperGrids extends StatelessWidget {
   const UpperGrids({
@@ -24,7 +22,7 @@ class UpperGrids extends StatelessWidget {
         builder: (context, state) {
           if (state.items.isNotEmpty) {
             return SizedBox(
-              height: MediaQuery.of(context).size.height * 0.11,
+              height: MediaQuery.of(context).size.height * 0.16,
               width: MediaQuery.of(context).size.width,
               child: ListView.separated(
                 shrinkWrap: true,
@@ -35,11 +33,26 @@ class UpperGrids extends StatelessWidget {
                 itemCount: state.items.length,
                 itemBuilder: (context, index) {
                   final item = state.items[index];
+                  final isThirdIndex = index == 3;
                   return CustomGrids(
                     image: ImageAssets.bar,
                     title: item.title,
                     price: item.price,
-                    widget: null,
+                    widget: isThirdIndex
+                        ? RichText(
+                            text: TextSpan(
+                              style: StylesText.smallText.copyWith(
+                                  fontWeight: FontWeight.w700,
+                                  color: const Color(0xff05CD99)),
+                              children: [
+                                const TextSpan(text: AppStrings.percent),
+                                TextSpan(
+                                    text: AppStrings.history,
+                                    style: StylesText.smallText),
+                              ],
+                            ),
+                          )
+                        : null,
                   );
                 },
               ),

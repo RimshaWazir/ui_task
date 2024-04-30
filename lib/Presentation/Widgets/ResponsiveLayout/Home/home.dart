@@ -1,15 +1,20 @@
 import 'package:ui_task/Data/DataSource/Resources/imports.dart';
+import 'package:ui_task/Presentation/Commons/dashboard_drawer.dart';
 
-class TabletHome extends StatefulWidget {
-  const TabletHome({
+import 'Controllers/drawer_controller.dart';
+
+class Home extends StatefulWidget {
+  String device;
+  Home({
     super.key,
+    required this.device,
   });
 
   @override
-  State<TabletHome> createState() => _TabletHomeState();
+  State<Home> createState() => _HomeState();
 }
 
-class _TabletHomeState extends State<TabletHome> {
+class _HomeState extends State<Home> {
   bool isDrawerOpen = true;
 
   void toggleDrawer() {
@@ -25,14 +30,21 @@ class _TabletHomeState extends State<TabletHome> {
     super.initState();
   }
 
+  DashboardDrawerController dashboardDrawerController =
+      DashboardDrawerController();
+  final GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      key: _globalKey,
       body: Row(
         children: [
-          NavigationDrawerr(isDrawerOpen: isDrawerOpen),
+          DashboardDrawer(
+            dashboardDrawerController: dashboardDrawerController,
+            isDrawerOpen: isDrawerOpen,
+          ),
           Expanded(
             child: Container(
               color: const Color(0xffF4F7FE),
@@ -68,7 +80,7 @@ class _TabletHomeState extends State<TabletHome> {
                             ),
                             RichText(
                               text: TextSpan(
-                                style: StylesText.smallText,
+                                style: StylesText.mediumText,
                                 children: [
                                   const TextSpan(
                                       text: '${AppStrings.pagesDashboard}\n'),
