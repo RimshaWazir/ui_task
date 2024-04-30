@@ -10,7 +10,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: appProviders,
+      providers: [
+        BlocProvider(
+          create: (context) => ItemBloc(),
+        ),
+        BlocProvider(
+          create: (context) => DrawerItemBloc(),
+        ),
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Task',

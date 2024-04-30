@@ -1,6 +1,6 @@
 export 'package:flutter/material.dart';
 export 'package:ui_task/Presentation/Widgets/ResponsiveLayout/responsive_layout.dart';
-export 'package:ui_task/Presentation/Widgets/ResponsiveLayout/MobileLayout/mobile_home.dart';
+export 'package:ui_task/Presentation/Widgets/ResponsiveLayout/MobileLayout/MobileHome/mobile_home.dart';
 export 'package:ui_task/Presentation/Widgets/ResponsiveLayout/Auth/Screen/tablet_web_login.dart';
 export 'package:ui_task/Presentation/Widgets/ResponsiveLayout/Auth/Commons/login_form.dart';
 export 'package:ui_task/Data/DataSource/Resources/app_strings.dart';
